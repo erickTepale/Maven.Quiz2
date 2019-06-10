@@ -1,10 +1,12 @@
 package com.zipcodewilmington.assessment2.part2;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Router {
-    private Map<String, String> map = new HashMap<>();
+    private Map<String, String> map = new LinkedHashMap<>();
 
 
     public void add(String path, String controller) {
@@ -29,6 +31,12 @@ public class Router {
 
     @Override
     public String toString() {
-        return null;
+        String temp ="";
+        Iterator it = map.entrySet().iterator();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            temp+= entry.getKey() + "" + entry.getValue() + "\n";
+        }
+
+        return temp;
     }
 }
